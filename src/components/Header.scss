@@ -1,0 +1,24 @@
+@import '../styles/components/variables';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 12rem;
+  background-color: var(--color-grey-dark-1);
+  box-shadow: 0 1.3rem 6rem rgba(0,0,0,0.3);
+
+  &__icon {
+    width: 6.5rem;
+    height: 6.5rem;
+    fill: var(--color-white);
+    cursor: pointer;
+
+    &--small {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+
+  }
+
+}

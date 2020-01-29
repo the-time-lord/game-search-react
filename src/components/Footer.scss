@@ -1,0 +1,19 @@
+@import '../styles/components/variables';
+
+.footer {
+  margin-top:auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+  background-color: var(--color-grey-dark-1);
+
+  &__legal {
+    color: var(--color-grey-light-2);
+    font-size: 1.3rem;
+  }
+
+  &__link {
+    text-decoration: underline;
+  }
+}

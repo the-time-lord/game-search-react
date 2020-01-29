@@ -1,0 +1,11 @@
+@import '../styles/components/variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 120rem;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: var(--color-grey-light-1);
+  box-shadow: var(--shadow-dark);
+}

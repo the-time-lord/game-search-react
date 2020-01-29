@@ -1,0 +1,44 @@
+@import '../styles/components/_variables.scss';
+
+.game-item-card__platforms {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.platform {
+  &__icon {
+    fill: var(--color-primary);
+    padding-right: .6rem;
+    width: auto;
+
+    &--pc {
+      height: 2rem;
+    }
+
+    &--xbox {
+      height: 1.5rem;
+    }
+
+    &--playstation {
+      height: 1.6rem;
+    }
+
+    &--nintendo {
+      height: 2.2rem;
+      margin-top: .5rem;
+    }
+
+    &--mac {
+      height: 1.7rem;
+    }
+
+    &--ios {
+      height: 2.4rem;
+    }
+
+    &--android {
+      height: 1.8rem;
+    }
+  }
+}

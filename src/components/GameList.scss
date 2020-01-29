@@ -1,0 +1,8 @@
+.game-list-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3rem 1rem;
+  justify-items: center;
+  align-items: stretch;
+  margin: 3.6rem 2.6rem;
+}
