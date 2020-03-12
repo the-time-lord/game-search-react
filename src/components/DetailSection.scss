@@ -1,0 +1,30 @@
+@import '../styles/components/_variables.scss';
+
+.heading--h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.heading--h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.text--p {
+  padding-right: 4rem;
+  line-height: 180%;
+}
+
+.text--a {
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--color-grey-dark-2);
+    transition: all .2s;
+  }
+}
+
+.detail__section {
+  margin-top: 4rem;
+}
