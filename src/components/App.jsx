@@ -8,6 +8,8 @@ import Footer from './Footer';
 import Home from './Home';
 import './App.scss'
 import GameList from './GameList';
+import GameDetail from './GameDetail';
+import AchievementDetail from './AchievementDetail';
 
 class App extends React.Component {
   state = { games: [] }
@@ -41,6 +43,15 @@ class App extends React.Component {
               exact 
               path="/search-results" 
               render={(props) => <GameList {...props} games={games} />} 
+            />
+            <Route 
+              exact
+              path="/games/:id" 
+              component={GameDetail} 
+            />
+            <Route 
+              path="/games/:id/achievements"
+              component={AchievementDetail}
             />
           </Switch>
           <Footer />
