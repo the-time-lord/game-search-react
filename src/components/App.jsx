@@ -12,7 +12,7 @@ import GameDetail from './GameDetail';
 import AchievementDetail from './AchievementDetail';
 
 class App extends React.Component {
-  state = { games: [] }
+  state = { games: [] };
 
   onTermSubmit = async term => {
     const response = await rawg.get('/games', {
@@ -22,7 +22,7 @@ class App extends React.Component {
     this.setState({ 
       games: response.data.results
     });
-  }
+  };
 
   render() {
     const { games } = this.state;

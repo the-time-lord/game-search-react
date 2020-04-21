@@ -44,7 +44,6 @@ const GameItem = ({ game }) => {
               <p className="game-item-card__info__rating">{rating}</p>
             </div>
           </div>
-          
         </div>
       </div>
     </Link>

@@ -15,7 +15,7 @@ class SearchBar extends React.Component {
 
     this.props.onFormSubmit(this.state.term);
     this.props.history.push('/search-results');
-  }
+  };
 
   render() {
     const { term } = this.state;
@@ -35,7 +35,6 @@ class SearchBar extends React.Component {
             </button>
           </form>
         </div>
-
     );
   }
 }

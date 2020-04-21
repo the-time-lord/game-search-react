@@ -12,6 +12,6 @@ const AchievementList = ({ achievements })  => {
   });
 
   return <div>{renderedList}</div>;
-}
+};
 
 export default AchievementList;

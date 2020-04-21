@@ -10,6 +10,6 @@ const Screenshot = ({ screenshot }) => {
     </div>
     
   )
-}
+};
 
 export default Screenshot;

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 const LinkList = ({ games }) => {
-  console.log(games);
   return games && games.length ? games.map((game, i) => (
     <span key={game.id}>
       { i > 0 && ', '}

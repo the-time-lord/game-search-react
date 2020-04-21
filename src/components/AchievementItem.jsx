@@ -14,6 +14,6 @@ const AchievementItem = ({ achievement }) => {
       </div>
     </div>
   );
-}
+};
 
 export default AchievementItem;

@@ -10,9 +10,9 @@ const ScreenshotList = ({ screenshots }) => {
         screenshot={screenshot}
       />
     )
-  })
+  });
 
   return <div className="screenshot-list-wrapper">{renderedList}</div>;
-}
+};
 
 export default ScreenshotList; 

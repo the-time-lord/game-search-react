@@ -3,7 +3,7 @@ import rawg from '../apis/rawg';
 import AchievementList from './AchievementList';
 
 class AchievementDetail extends React.Component {
-  state = { achievements: [] }
+  state = { achievements: [] };
 
   componentDidMount() {
     this.fetchAchievements();
@@ -16,7 +16,7 @@ class AchievementDetail extends React.Component {
     this.setState({ 
       achievements: response.data.results
     });
-  }
+  };
 
   render() {
     const { achievements } = this.state;
