@@ -2,6 +2,7 @@ import React from 'react';
 import dayjs from 'dayjs';
 import './InfoTable.scss';
 import DetailSection from './DetailSection';
+import DetailText from './DetailText';
 
 const InfoTable = ({ platforms, metacritic, developers, publishers, released, tba, genres }) => {
   
@@ -10,47 +11,47 @@ const InfoTable = ({ platforms, metacritic, developers, publishers, released, tb
       <DetailSection 
         headingType="h3"
         heading="Platforms:"
-        textType="p"
-        text={platforms && platforms.map(platform => platform.platform.name).join(', ').toUpperCase()}
-      />
+      >
+        <DetailText text={platforms && platforms.map(platform => platform.platform.name).join(', ').toUpperCase()}/>
+      </DetailSection>
       <DetailSection 
         headingType="h3"
         heading="Metascore:"
-        textType={metacritic ? "div" : "p"}
-        text={metacritic &&
-          <div className="info-table-metacritic" title="metacritic">  
+      >
+        {metacritic ?
+          <div className="info-table-metacritic" title="metacritic">
             <p>{metacritic}</p>
-          </div>
+          </div> : 'N/A'
         }
-      />
+      </DetailSection>
       <DetailSection 
         headingType="h3"
         heading="Developer:"
-        textType="p"
-        text={developers && developers.map(developer => developer.name).join(', ').toUpperCase()}
-      />
+      >
+        <DetailText text={developers && developers.map(developer => developer.name).join(', ').toUpperCase()} />
+      </DetailSection>
       <DetailSection 
         headingType="h3"
         heading="Publisher:"
-        textType="p"
-        text={publishers && publishers.map(publisher => publisher.name).join(', ').toUpperCase()}
-      />
+      >
+        <DetailText text={publishers && publishers.map(publisher => publisher.name).join(', ').toUpperCase()} />
+      </DetailSection>
       <DetailSection 
         headingType="h3"
         heading="Release date:"
-        textType="p"
-        text={released ?
+      >
+        <DetailText text={released ?
           dayjs(`${released}`).format('DD MMM, YYYY') :
-          tba ? 'To be announced' : 'N/A'}
-      />
+          tba ? 'To be announced' : 'N/A'} />
+      </DetailSection>
       <DetailSection 
         headingType="h3"
         heading="Genre:"
-        textType="p"
-        text={genres && genres.map(genre => genre.name).join(', ')}
-      />
+      >
+        <DetailText text={genres && genres.map(genre => genre.name).join(', ')} />
+      </DetailSection>
     </div>
   )
-}
+};
 
 export default InfoTable;

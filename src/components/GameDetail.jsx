@@ -6,8 +6,11 @@ import './GameDetail.scss';
 import PlatformList from './PlatformList';
 import AchievementList from './AchievementList';
 import DetailSection from './DetailSection';
+import DetailText from "./DetailText";
+import DetailLink from "./DetailLink";
 import InfoTable from './InfoTable';
 import ScreenshotList from './ScreenshotList';
+import LinkList from "./LinkList";
 
 class GameDetail extends React.Component {
   state = { 
@@ -43,7 +46,7 @@ class GameDetail extends React.Component {
     this.setState({ 
       [endPoint]: response.data.results
     });
-  }
+  };
 
   fetchGame = async () => {
     const { match } = this.props;
@@ -52,7 +55,7 @@ class GameDetail extends React.Component {
     this.setState({ 
       game: response.data
     });
-  }
+  };
 
   fetchSeries = async () => {
     const { match } = this.props;
@@ -61,7 +64,7 @@ class GameDetail extends React.Component {
     this.setState({
       series: response.data.results
     })
-  }
+  };
 
   render() {
     const background = {
@@ -71,7 +74,7 @@ class GameDetail extends React.Component {
       position: "absolute",
       width: "100%",
       height: "500px"
-    }
+    };
     const { 
       background_image_additional, 
       description_raw, 
@@ -95,7 +98,7 @@ class GameDetail extends React.Component {
 
     return (
       <div className="detail__main-wrapper">
-        <div style={background}></div>
+        <div style={background} />
         <div className="detail__wrapper">
           <div>
             <div className="detail__meta-head">
@@ -111,38 +114,28 @@ class GameDetail extends React.Component {
             <DetailSection 
               headingType="h2"
               heading="About"
-              textType="p"
-              text={description_raw}
               className="detail__about-heading"
-            />
+            >
+              <DetailText text={description_raw} />
+            </DetailSection>
             <DetailSection
               headingType="h3"
               heading="Other games in the series:"
-              textType="p"
-              text={series && 
-                      // series.map(game => game.name).join(', ')
-                      series.map(game => 
-                        <Link to={`/games/${game.id}`} key={game.id} className="detail__link">{game.name}</Link>
-                      )
-                    }
-            />
+            >
+              <LinkList games={series}/>
+            </DetailSection>
             <DetailSection
               headingType="h3"
               heading="DLCs:"
-              textType="p"
-              text={additions && 
-                      // additions.map(addon => addon.name).join(', ')
-                      additions.map(addition =>
-                        <Link to={`/games/${addition.id}`} key={addition.id} className="detail__link">{addition.name}</Link>
-                      )
-                    }
-            />
+            >
+              <LinkList games={additions}/>
+            </DetailSection>
             <DetailSection
               headingType="h3"
               heading="Website:"
-              textType="a"
-              text={website}
-            />
+            >
+              <DetailLink text={website} url={website}/>
+            </DetailSection>
           </div>
           <div className="detail__column2">
             <img className="detail__image" src={background_image_additional} alt="" />
@@ -156,20 +149,20 @@ class GameDetail extends React.Component {
               released={released}
               tba={tba} 
             />
-            {achievements.length > 0 && 
-              <div>
-                <h3 className="detail__heading3">Achievements</h3>
-                <AchievementList achievements={achievements.slice(0, 2)} />
-                <Link to={`/games/${id}/achievements`}>
-                  <div className="achievement--more">
-                    <div className="achievement-icon icon-placeholder"><span className="placeholder__ellipsis">...</span></div>
-                    <div className="achievement-detail">
-                      <h4 className="achievement-text achievement-title">view all achievements</h4>
-                      <p className="achievement-text">{parent_achievements_count} items</p>
-                    </div>
+            {achievements.length > 0 &&
+            <div>
+              <h3 className="detail__heading3">Achievements</h3>
+              <AchievementList achievements={achievements.slice(0, 2)} />
+              <Link to={`/games/${id}/achievements`}>
+                <div className="achievement--more">
+                  <div className="achievement-icon icon-placeholder"><span className="placeholder__ellipsis">...</span></div>
+                  <div className="achievement-detail">
+                    <h4 className="achievement-text achievement-title">view all achievements</h4>
+                    <p className="achievement-text">{parent_achievements_count} items</p>
                   </div>
-                </Link>
-              </div>
+                </div>
+              </Link>
+            </div>
             }
           </div>
         </div>

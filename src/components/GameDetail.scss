@@ -67,11 +67,6 @@
 
 .detail__link {
   text-decoration: underline;
-
-  &:not(:last-child)::after {
-    content: ", ";
-    text-decoration: none;
-  } 
 }
 
 .icon-placeholder {
